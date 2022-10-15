@@ -114,25 +114,4 @@ public class PostRepository {
                         + "WHERE post.id = :id",
                 Map.of("id", id, "sold", true));
     }
-
-    public void update(Post post) {
-        crudRepository.run(session -> session.merge(post));
-    }
-
-    public List<Post> findAdIsPhoto() {
-        return crudRepository.query(
-                PART_QUERY
-                        + "WHERE post.photo.size > 0 "
-                        + CREATED_DESC, Post.class
-        );
-    }
-
-    public List<Post> findAdWithCategory(String categoryName) {
-        return crudRepository.query(
-                PART_QUERY
-                        + "WHERE category.name = :categoryName "
-                        + CREATED_DESC, Post.class,
-                Map.of("categoryName", categoryName)
-        );
-    }
 }

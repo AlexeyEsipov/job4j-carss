@@ -33,13 +33,4 @@ public class CarRepository {
         crudRepository.run(session -> session.save(car));
         return car;
     }
-
-    public void update(Car car) {
-        crudRepository.run(session -> session.merge(car));
-    }
-
-    public void delete(int id) {
-        crudRepository.run("DELETE Car WHERE id = :id",
-                Map.of("id", id));
-    }
 }
