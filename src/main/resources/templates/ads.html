@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cars</title>
+  <th:block th:include="blocks/css :: head"/>
+</head>
+<body>
+<div class="container">
+  <th:block th:include="blocks/navbutton :: div"/>
+  <div class="row">
+    <table class="table">
+      <tbody>
+      <tr th:each="post: ${ads}">
+        <div class="button updateAd">
+          <td th:width="160" >
+            <a th:href="@{|/descriptionAd/${post.id}|}">
+              <img th:width="150" th:high="150" th:src="@{|/photoAd/${post.id}|}">
+            </a>
+          </td>
+          <td th:width="700">
+            <h5><span th:text="${post.name}"></span></h5>
+            <p>
+              <span th:text="${post.car.category.name}"></span>
+              <span>/ </span>
+              <span th:text="${post.car.body.type}"></span>
+              <span>/ </span>
+              <span th:text="${post.car.engine.name}"></span>
+            </p>
+            <div>
+              <p>
+                <span class="outline2" th:if="${post.sold}">Продано</span>
+                <span class="outline1" th:if="${!post.sold}">В продаже</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <p>
+              <span>Автор: </span>
+              <span th:text="${post.user.name}"></span>
+            </p>
+            <p>
+              <span>Добавлено: </span>
+              <span th:text="${#dates.format(post.created, 'dd-MMM-yyyy')}"></span>
+            </p>
+          </td>
+        </div>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Cars</title>
+  <th:block th:include="blocks/css :: head"/>
+</head>
+<body>
+<div class="container">
+  <th:block th:include="blocks/nav :: div"/>
+  <div class="row pt-3">
+    <div class="card" style="width: 50%">
+      <div class="card-header">
+        Выберите модель
+      </div>
+      <div class="card-body">
+        <form th:action="@{/selectModel}" method="POST">
+          <input type="hidden" name="id" value="0"/>
+          <div class="form-group">
+            <label for="model.id">Модель</label>
+            <select class="form-control" id="model.id" name="model.id">
+              <option th:each="model : ${model}" th:value="${model.id}" th:text="${model.name}"></option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

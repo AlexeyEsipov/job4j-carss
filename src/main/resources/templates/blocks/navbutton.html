@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:fragment="navbutton">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cars</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <div class="btn-group">
+          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Статус
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/adsAll}">Все машины</a></li>
+            <li><a class="dropdown-item" th:href="@{/ads}">Непроданные</a></li>
+            <li><a class="dropdown-item" th:href="@{/adsSold}">Проданные</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Тип машины
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/passenger}">Легковые</a></li>
+            <li><a class="dropdown-item" th:href="@{/commercial}">Коммерческие</a></li>
+            <li><a class="dropdown-item" th:href="@{/special}">Специальная</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Пробег
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/adsNew}">Новые</a></li>
+            <li><a class="dropdown-item" th:href="@{/adsNoNew}">С пробегом</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Фильтры
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/adsLast}">За последние 24 часа</a></li>
+            <li><a class="dropdown-item" th:href="@{/formFilterCategory}">Применить фильтр</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Мои объявления
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:if="${user.name != 'Гость'}" th:href="@{/myAds}">Мои объявления</a></li>
+            <li>
+              <form class="text-right" th:action="@{/formSelectCategory}" method="GET">
+                <button type="submit" class="btn btn-success" style="margin-right: 20px">Добавить объявление</button>
+              </form>
+          </ul>
+        </div>
+        <a class="nav-item nav-link" th:href="@{/logout}">
+          <span th:text="${user.name}"></span>
+          <span> | Выйти</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+</html>

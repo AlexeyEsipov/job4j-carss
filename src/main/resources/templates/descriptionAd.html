@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Cars</title>
+  <th:block th:include="blocks/css :: head"/>
+</head>
+<body>
+<div class="container">
+  <th:block th:include="blocks/nav :: div"/>
+  <div class="row pt-3">
+    <div class="card" style="width: 100%">
+      <div class="card-header">
+        <h3><span th:text="${post.name}"></span></h3>
+      </div>
+      <div class="card-body">
+        <table>
+          <tbody>
+          <td>
+            <p><b>Описание: </b><span th:text="${post.description}"/></p>
+            <p><b>Добавлена: </b><span th:text="${#dates.format(post.created, 'dd-MMM-yyyy')}"></span></p>
+            <p><b>Категория: </b><span th:text="${post.car.category.name}"/></p>
+            <p><b>Кузов: </b><span th:text="${post.car.body.type}"/></p>
+            <p><b>Бренд: </b><span th:text="${post.car.brand.name}"/></p>
+            <p><b>Модель: </b><span th:text="${post.car.model.name}"/></p>
+            <p><b>Тип двигателя: </b><span th:text="${post.car.engine.name}"/></p>
+            <p><b>Пробег: </b><span th:if="${post.newCar}">Без пробега</span>
+                              <span th:if="${!post.newCar}">С пробегом</span></p>
+            <p><b>Статус: </b><span th:if="${post.sold}">Продано</span>
+                              <span th:if="${!post.sold}">В продаже</span></p>
+            <p><b>Автор объявления: </b><span th:text="${post.user.name}"/></p>
+          </td>
+          <td>
+            <img th:width="550" th:high="550" th:src="@{|/photoAd/${post.id}|}">
+          </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="btn-group" th:if="${user.name != 'Гость' && user == post.user}">
+      <form  th:action="@{|/setSold/${post.id}|}" method="GET">
+        <button type="submit" class="btn btn-primary mt-3" style="margin-right: 16px" >Продано</button>
+      </form>
+      <form  th:action="@{|/deleteAd/${post.id}|}" method="GET">
+        <button type="submit" class="btn btn-primary mt-3" >Удалить</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
