@@ -1,7 +1,3 @@
-CREATE TABLE IF NOT EXISTS driver(
-    id SERIAL PRIMARY KEY
-);
-
 CREATE TABLE IF NOT EXISTS category(
     id SERIAL PRIMARY KEY,
     name TEXT
@@ -22,7 +18,7 @@ CREATE TABLE IF NOT EXISTS model(
 CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY,
     name TEXT,
-    email VARCHAR(255) UNIQUE,
+    email TEXT UNIQUE,
     password TEXT
 );
 
@@ -33,12 +29,6 @@ CREATE TABLE IF NOT EXISTS car(
     model_id INT NOT NULL REFERENCES model(id),
     body_id INT NOT NULL REFERENCES body(id),
     category_id INT NOT NULL REFERENCES category(id)
-);
-
-CREATE TABLE IF NOT EXISTS history_owner(
-    id SERIAL PRIMARY KEY,
-    driver_id INT NOT NULL REFERENCES driver(id),
-    car_id INT NOT NULL REFERENCES car(id)
 );
 
 CREATE TABLE IF NOT EXISTS post(
