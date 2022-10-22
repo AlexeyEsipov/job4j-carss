@@ -130,9 +130,9 @@ public class PostController {
         searchService.setIdEngine(Integer.parseInt(idEngine));
         car.setCategory(categoryService.findById(searchService.getIdCategory()));
         car.setBody(bodyService.findById(searchService.getIdBody()));
-        car.setBrand(searchService.getIdBrand());
+        car.setBrand(brandService.findById(searchService.getIdBrand()));
         car.setModel(modelService.findById(searchService.getIdModel()));
-        car.setEngine(searchService.getIdEngine());
+        car.setEngine(engineService.findById(searchService.getIdEngine()));
         carService.add(car);
         searchService.setIdCar(car.getId());
         return "redirect:/formAddDescription";

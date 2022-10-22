@@ -2,7 +2,7 @@ package ru.job4j.cars.service;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
-import ru.job4j.cars.model.Dvig;
+import ru.job4j.cars.model.Engine;
 import ru.job4j.cars.repository.EngineRepository;
 
 import java.util.Collection;
@@ -16,11 +16,11 @@ public class EngineService {
         this.repository = repository;
     }
 
-    public Dvig findById(int id) {
+    public Engine findById(int id) {
         return repository.findById(id);
     }
 
-    public Collection<Dvig> findAll() {
+    public Collection<Engine> findAll() {
         return repository.findAll();
     }
 }

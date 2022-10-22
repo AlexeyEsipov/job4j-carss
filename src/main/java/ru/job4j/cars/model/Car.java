@@ -3,10 +3,12 @@ package ru.job4j.cars.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "car")
 public class Car {
@@ -16,17 +18,17 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "engine_id")
-    private Dvig engine = Dvig.V4;
+    @ManyToOne
+    @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
+    private Engine engine;
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "brand_id")
-    private Marka brand;
+    @ManyToOne
+    @JoinColumn(name = "brand_id", foreignKey = @ForeignKey(name = "BRAND_ID_FK"))
+    private Brand brand;
 
     @ManyToOne
     @JoinColumn(name = "model_id", foreignKey = @ForeignKey(name = "MODEL_ID_FK"))
-    private ModelCar model = ModelCar.of("first", Marka.BMW);
+    private ModelCar model;
 
     @ManyToOne
     @JoinColumn(name = "body_id", foreignKey = @ForeignKey(name = "BODY_ID_FK"))
@@ -35,16 +37,4 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "CATEGORY_ID_FK"))
     private Category category;
-
-    public Car() {
-        this.brand = Marka.BMW;
-    }
-
-    public void setEngine(int en) {
-            this.engine = Dvig.values()[en];
-        }
-
-    public void setBrand(int brand) {
-        this.brand = Marka.values()[brand];
-    }
 }

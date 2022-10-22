@@ -2,7 +2,7 @@ package ru.job4j.cars.service;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
-import ru.job4j.cars.model.Marka;
+import ru.job4j.cars.model.Brand;
 import ru.job4j.cars.repository.BrandRepository;
 
 import java.util.Collection;
@@ -16,11 +16,11 @@ public class BrandService {
         this.repository = repository;
     }
 
-    public Marka findById(int id) {
+    public Brand findById(int id) {
         return repository.findById(id);
     }
 
-    public Collection<Marka> findAll() {
+    public Collection<Brand> findAll() {
         return repository.findAll();
     }
 }

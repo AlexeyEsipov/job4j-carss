@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.ModelCar;
+
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -26,8 +27,9 @@ public class ModelRepository {
 
     public List<ModelCar> findModelByBrand(int brandId) {
         return crudRepository.query(
-                "FROM ModelCar model "
-                        + "WHERE brand_id = :id "
+                "SELECT DISTINCT model FROM ModelCar model "
+                        + "JOIN FETCH model.brand brand "
+                        + "WHERE brand.id = :id "
                         + "ORDER BY model.name ASC ", ModelCar.class,
                 Map.of("id", brandId)
         );

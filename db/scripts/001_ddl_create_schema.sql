@@ -9,10 +9,15 @@ CREATE TABLE IF NOT EXISTS body(
     category_id INT NOT NULL REFERENCES category(id)
 );
 
+CREATE TABLE IF NOT EXISTS brand(
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+
 CREATE TABLE IF NOT EXISTS model(
     id SERIAL PRIMARY KEY,
     name TEXT,
-    brand_id INT
+    brand_id INT NOT NULL REFERENCES brand(id)
 );
 
 CREATE TABLE IF NOT EXISTS users(
@@ -22,10 +27,15 @@ CREATE TABLE IF NOT EXISTS users(
     password TEXT
 );
 
+CREATE TABLE IF NOT EXISTS engine(
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+
 CREATE TABLE IF NOT EXISTS car(
     id SERIAL PRIMARY KEY,
-    engine_id INT,
-    brand_id INT,
+    engine_id INT NOT NULL REFERENCES engine(id),
+    brand_id INT NOT NULL REFERENCES brand(id),
     model_id INT NOT NULL REFERENCES model(id),
     body_id INT NOT NULL REFERENCES body(id),
     category_id INT NOT NULL REFERENCES category(id)

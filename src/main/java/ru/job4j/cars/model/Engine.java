@@ -9,10 +9,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "driver")
-public class Driver {
-
+@Table(name = "engine")
+public class Engine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
 }

@@ -1,3 +1,12 @@
+INSERT INTO engine(name) VALUES ('V4');
+INSERT INTO engine(name) VALUES ('V6');
+INSERT INTO engine(name) VALUES ('V8');
+INSERT INTO engine(name) VALUES ('V12');
+
+INSERT INTO brand(name) VALUES ('BMW');
+INSERT INTO brand(name) VALUES ('Audi');
+INSERT INTO brand(name) VALUES ('Ford');
+INSERT INTO brand(name) VALUES ('Hyundai');
 
 INSERT INTO category(name) VALUES ('Легковые');
 INSERT INTO category(name) VALUES ('Коммерческие');
@@ -21,15 +30,15 @@ INSERT INTO body(type, category_id) VALUES ('Коммунальная', 3);
 INSERT INTO body(type, category_id) VALUES ('Бульдозеры', 3);
 INSERT INTO body(type, category_id) VALUES ('Экскаваторы', 3);
 
-INSERT INTO model(name, brand_id) VALUES ('M3', 0);
-INSERT INTO model(name, brand_id) VALUES ('X5', 0);
-INSERT INTO model(name, brand_id) VALUES ('7 Series', 0);
-INSERT INTO model(name, brand_id) VALUES ('X6', 0);
-INSERT INTO model(name, brand_id) VALUES ('80', 1);
-INSERT INTO model(name, brand_id) VALUES ('100', 1);
-INSERT INTO model(name, brand_id) VALUES ('A6', 1);
-INSERT INTO model(name, brand_id) VALUES ('A8', 1);
-INSERT INTO model(name, brand_id) VALUES ('Mustang', 2);
-INSERT INTO model(name, brand_id) VALUES ('Transit', 2);
-INSERT INTO model(name, brand_id) VALUES ('R160LC', 3);
-INSERT INTO model(name, brand_id) VALUES ('R210LC', 3);
+INSERT INTO model(name, brand_id) VALUES ('M3', 1);
+INSERT INTO model(name, brand_id) VALUES ('X5', 1);
+INSERT INTO model(name, brand_id) VALUES ('7 Series', 1);
+INSERT INTO model(name, brand_id) VALUES ('X6', 1);
+INSERT INTO model(name, brand_id) VALUES ('80', 2);
+INSERT INTO model(name, brand_id) VALUES ('100', 2);
+INSERT INTO model(name, brand_id) VALUES ('A6', 2);
+INSERT INTO model(name, brand_id) VALUES ('A8', 2);
+INSERT INTO model(name, brand_id) VALUES ('Mustang', 3);
+INSERT INTO model(name, brand_id) VALUES ('Transit', 3);
+INSERT INTO model(name, brand_id) VALUES ('R160LC', 4);
+INSERT INTO model(name, brand_id) VALUES ('R210LC', 4);

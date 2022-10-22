@@ -24,6 +24,8 @@ public class CarRepository {
     public List<Car> findAll() {
         return crudRepository.query(
                 "SELECT DISTINCT car FROM Car car "
+                        + "JOIN FETCH car.engine engine "
+                        + "JOIN FETCH car.brand brand "
                         + "JOIN FETCH car.body body "
                         + "JOIN FETCH car.category category ", Car.class
         );

@@ -13,13 +13,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "brand")
+public class Brand {
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @EqualsAndHashCode.Include
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private List<Body> bodies = new ArrayList<>();
+
+    @OneToMany(mappedBy = "brand")
+    private List<ModelCar> models = new ArrayList<>();
 }
