@@ -18,8 +18,8 @@
 [![Hibernate](https://img.shields.io/badge/Hibernate--5.6.11.Final-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)](https://hibernate.org/)
 
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.0.0.RELEASE-blue?style=for-the-badge&logo=thymeleaf&logoColor=white)
-![Liquibase](https://img.shields.io/badge/Liquibase-4.9.1-red)
-![Lombok](https://img.shields.io/badge/Lombok-1.18.24-green)
+![Liquibase](https://img.shields.io/badge/Liquibase-4.9.1-red?style=for-the-badge&logo=liquibase&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-1.18.24-green?style=for-the-badge&logo=lombok&logoColor=white)
 
 Перед запуском установите:
 - PostgreSQL 14
