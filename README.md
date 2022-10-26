@@ -14,10 +14,10 @@
 ![java](https://img.shields.io/badge/Java--17-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot--2.7.3-F2F4F9?style=for-the-badge&logo=spring-boot)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap--5.2.2-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-![PostgresSQL](https://img.shields.io/badge/PostgreSQL--42.5.0-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![PostgresSQL](https://img.shields.io/badge/PostgreSQL--14-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 [![Hibernate](https://img.shields.io/badge/Hibernate--5.6.11.Final-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)](https://hibernate.org/)
 
-![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.0.0.RELEASE-blue)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.0.0.RELEASE-blue?style=for-the-badge&logo=thymeleaf&logoColor=white)
 ![Liquibase](https://img.shields.io/badge/Liquibase-4.9.1-red)
 ![Lombok](https://img.shields.io/badge/Lombok-1.18.24-green)
 
